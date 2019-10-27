@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Dashboard</title>
+    <!-- Bootstrap CSS CDN  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script type="text/JavaScript" src="https://MomentJS.com/downloads/moment.js"></script>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+</head>
+
+<body>
+    <!-- Retrieved data will be dumped here -->
+    <nav>
+        <strong>
+            <h1 class="text-center">Weather Dashboard</h1>
+        </strong>
+    </nav>
+    <br>
+    <div class="container">
+        <!-- Row for Searching Weather Dashboard -->
+        <div class="row">
+            <div class="col-lg-4" id="search-card">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>
+                             Search for a City
+                        </strong>
+                    </div>
+                    <div class="card-body">
+                        <!-- Use the search bar to find weather by city name -->
+                        <input type="text" class="form-control" id="get-weather"></input>
+
+                        <button type="submit" class="btn btn-default" id="run-search">
+                            <i class="fa fa-search"></i></button>
+                        <div class="search-data"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- All weather data will appear here -->
+            <div class="col-lg-8">
+                <div class="row weather-box">
+                    <div class="col-lg-12">
+                        <div class="weather-container">
+                            <span>
+                                <div class="city"></div><img id="wicon"></img>
+                            </span>
+                            <div class="temp"></div>
+                            <div class="humidity"></div>
+                            <div class="wind"></div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 forecast-container">
+                        <h5 class="five-day">5-Day Forecast</h5>
+                        <!-- Day 1 -->
+                        <div class="card-deck">
+                            <div class="card" style="margin: 2px;">
+                                <div class="card-body" id="day-1">
+                                        <!-- DAY 1 -->
+                                    <h5 class="card-title"></h5> 
+                                    <img src=""></img>
+                                </div>
+                            </div>
+                            <div class="card" style="margin: 2px;">
+                                <div class="card-body" id="day-2">
+                                        <!-- Day 2 -->
+                                    <h5 class="card-title"></h5>
+                                    <img src=""></img>
+                                </div>
+                            </div>
+                            <div class="card" style="margin: 2px;">
+                                <div class="card-body" id="day-3">
+                                        <!-- Day 3 -->
+                                    <h5 class="card-title"></h5>
+                                    <img src=""></img>
+                                </div>
+                            </div>
+                            <div class="card" style="margin: 2px;">
+                                <div class="card-body" id="day-4">
+                                        <!-- Day 4 -->
+                                    <h5 class="card-title"></h5>
+                                    <img src=""></img>
+                                </div>
+                            </div>
+                            <div class="card" style="margin: 2px;">
+                                <div class="card-body" id="day-5">
+                                        <!-- Day 5 -->
+                                    <h5 class="card-title"></h5>
+                                    <img src=""></img>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
