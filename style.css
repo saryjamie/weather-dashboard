@@ -5,6 +5,19 @@ body {
   color: #f4f9ff;
 }
 
+.card-header{
+  padding-left: 2px;
+}
+
+.form-control{
+width: 87%;
+margin-right: 2px;
+}
+
+button{
+  float: left;
+}
+
 title {
   color: #f4f9ff;
 }
