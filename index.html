@@ -33,11 +33,15 @@
                     <div class="card-body">
                         <!-- Use the search bar to find weather by city name -->
                         <input type="text" class="form-control pull-left" id="get-weather"></input>
-                        
+
                         <button type="submit" class="btn btn-default" id="run-search">
                             <i class="fa fa-search"></i></button>
-                        <div class="search-data"></div>
                     </div>
+                </div>
+                <div style="color: red;" class="invalid-message"></div>
+                <div class="search-data">
+                    <ul id="search-list"></ul>
+                    </ul>
                 </div>
             </div>
             <!-- All weather data will appear here -->
@@ -47,11 +51,13 @@
                         <div class="weather-container">
                             <span>
                                 <div class="city"></div><img id="wicon"></img>
+                                <div style="font-style: italic; font-weight: bolder;" class="status"></div>
                             </span>
+
                             <div class="temp"></div>
                             <div class="humidity"></div>
                             <div class="wind"></div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -62,38 +68,28 @@
                         <!-- Day 1 -->
                         <div class="card-deck text-center" style="color: grey;">
                             <div class="card" style="margin: 2px;">
-                                <div class="card-body" id="day-1">
-                                        <!-- DAY 1 -->
-                                    <h5 class="card-title"></h5> 
-                                    <img src=""></img>
+                                <div class="card-body forecast-card" id="day-1">
+                                    <!-- DAY 1 -->
                                 </div>
                             </div>
                             <div class="card" style="margin: 2px;">
-                                <div class="card-body" id="day-2">
-                                        <!-- Day 2 -->
-                                    <h5 class="card-title"></h5>
-                                    <img src=""></img>
+                                <div class="card-body forecast-card" id="day-2">
+                                    <!-- Day 2 -->
                                 </div>
                             </div>
                             <div class="card" style="margin: 2px;">
-                                <div class="card-body" id="day-3">
-                                        <!-- Day 3 -->
-                                    <h5 class="card-title"></h5>
-                                    <img src=""></img>
+                                <div class="card-body forecast-card" id="day-3">
+                                    <!-- Day 3 -->
                                 </div>
                             </div>
                             <div class="card" style="margin: 2px;">
-                                <div class="card-body" id="day-4">
-                                        <!-- Day 4 -->
-                                    <h5 class="card-title"></h5>
-                                    <img src=""></img>
+                                <div class="card-body forecast-card" id="day-4">
+                                    <!-- Day 4 -->
                                 </div>
                             </div>
                             <div class="card" style="margin: 2px;">
-                                <div class="card-body" id="day-5">
-                                        <!-- Day 5 -->
-                                    <h5 class="card-title"></h5>
-                                    <img src=""></img>
+                                <div class="card-body forecast-card" id="day-5">
+                                    <!-- Day 5 -->
                                 </div>
                             </div>
                         </div>

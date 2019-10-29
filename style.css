@@ -14,10 +14,6 @@ width: 87%;
 margin-right: 2px;
 }
 
-button{
-  float: left;
-}
-
 title {
   color: #f4f9ff;
 }
@@ -39,6 +35,11 @@ span {
   border-radius: 10px;
   padding-bottom: 50px;
   width: 90%;
+}
+
+.forecast-card{
+  background-color: royalblue;
+  color: white;
 }
 
 .app-title {
