@@ -1,37 +1,46 @@
 var apiKey = "03e24d7d731fc83efc64f5aa4eb937c1";
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=latitude&lon=longitude&q=San+Diego&appid=" +  apiKey;
 
-$.ajax({
+function currentWeather(){
+  navigator.geolocation.getCurrentPosition(function (position){
+    longitude = position.coords.longitude;
+    latitude = position.coords.latitude;
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude + "&appid=" +  apiKey;
+
+    $.ajax({
   url: queryURL,
   method: "GET"
 })
   // We store all of the retrieved data inside of an object called "response"
   .then(function(response) {
     var iconCode = response.weather[0].icon;
-    var statusCode = response.weather[0].main;
+    
     var iconurl = "http://openweathermap.org/img/w/" + iconCode + ".png";
-    $(".city").html("<h1> San Diego </h1>");
-    $(".status").text(statusCode);
+    $(".city").html("<h1> " + response.name + " </h1>");
     $(".temp").text("Temperature: " + ((response.main.temp - 273.15) * 1.8 + 32).toFixed(0) + " °F");
     $(".humidity").text("Humidity: " + response.main.humidity + " %");
     $(".wind").text("Wind Speed: " + response.wind.speed + " MPH");
     $("#wicon").attr("src", iconurl);
   });
 
+  });
+};
+
+currentWeather();
+
+////////////////////////
+
+function fiveDayForecast(){
+
+
+
 var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?q=San+Diego&appid=" + apiKey;
 
-var currentDay = moment().format("dddd MMMM Do");
 
 $.ajax({
   url: fiveDayURL,
   method: "GET"
 }).then(function(responseTwo) {
-  // Log the queryURL
-  console.log(fiveDayURL);
-  // Log the resulting object
-  console.log(responseTwo);
-  console.log(responseTwo.list[4].dt_txt);
-  console.log(responseTwo.list[4].main.temp);
 
   var icon1 = responseTwo.list[4].weather[0].icon;
   var icon1url = "http://openweathermap.org/img/w/" + icon1 + ".png";
@@ -91,7 +100,9 @@ $.ajax({
   $("#day-5").append("<p>" + "Temp: " + tempFive + " °F </p>");
   $("#day-5").append("<p>" + "Humidity: " + responseTwo.list[36].main.humidity + " % </p>");
 });
+}
 
+fiveDayForecast();
 ////////////////////////////
 
 $("button").on("click", function(event) {
@@ -101,9 +112,14 @@ $("button").on("click", function(event) {
   var apiKey = "03e24d7d731fc83efc64f5aa4eb937c1";
   var getWeather = $("#get-weather");
   var city = getWeather.val().trim();
+  cities.push(city)
   var message = document.querySelector(".invalid-message");
-
+   
   console.log(getWeather);
+
+  function storeCities(){
+    localStorage.setItem("cities", JSON.stringify(cities));
+  }
 
   if (city === null || city === "" ){
     message.innerHTML = "Invalid input. Please try again!";
@@ -119,14 +135,9 @@ $("button").on("click", function(event) {
 
   }
   
-  function storeCities(){
-    localStorage.setItem("cities", city);
-  }
+  
 
-  function getCities(){
-    var getCity = localStorage.getItem("cities");
-    console.log(getCity);
-  }
+  
 
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?lat=latitude&lon=longitude&q=" +
@@ -236,5 +247,12 @@ $("button").on("click", function(event) {
     $("#day-5").append("<p>" + "Temp: " + tempFive + " °F </p>");
     $("#day-5").append("<p>" + "Humidity: " + responseTwo.list[36].main.humidity + " % </p>");
   });
-
+  
 });
+
+var cities = [];
+
+function getCities(){
+  var getCity = localStorage.getItem("cities");
+  console.log(getCity);
+}

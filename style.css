@@ -1,6 +1,11 @@
 body {
   background-color: #293251;
 }
+
+header{
+  border-bottom: 4px solid crimson;
+}
+
 .text-center {
   color: #f4f9ff;
 }
@@ -110,12 +115,8 @@ span {
   padding-right: 25px;
 }
 
-.temperature-value p:hover {
-}
-
 .card-body{
   padding: 1px;
-
 }
 
 #search-card {
@@ -127,9 +128,6 @@ span {
   font-size: 0.5em;
 }
 
-.temperature-description {
-}
-
 .temperature-description p {
   padding: 8px;
   margin: 0;
@@ -138,13 +136,23 @@ span {
   font-size: 1.2em;
 }
 
-.location {
-}
-
 .location p {
   margin: 0;
   padding: 0;
   color: #293251;
   text-align: center;
   font-size: 0.8em;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color:white;
+  background-color: #293251;
+  padding: 10px;
+  border-top: 4px solid crimson;
+  text-align: center;
+  height: 50px;
 }
